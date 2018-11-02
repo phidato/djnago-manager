@@ -1,0 +1,60 @@
+{% extends 'app/sidebar.html' %}
+{% load static %}
+
+    {% block body_block %}
+    <div class="container">
+
+        <h2>Add Employee Details</h2>
+            <form action="{% url 'empsave' %}" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <input type="hidden" name="empid" value="{{ empid }}">
+                <div class="form-group">
+                    <label for="fname">Name:</label>
+                    <input type="text" class="form-control" id="fname" placeholder="Enter Name" name="name" value="{{ name }}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lname">Designation:</label>
+                    <select class="form-control" name="designation">
+                    {% for desg in designations %}
+                        <option value="{{ desg.title }}">{{ desg.title }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Age:</label>
+                    <input type="text" class="form-control" id="lname" placeholder="Age" name="age" value="{{ age }}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lname">Salary:</label>
+                    <input type="text" class="form-control" id="lname" placeholder="Salary" name="salary" value="{{ salary }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Department:</label>
+                    <select class="form-control" name="department">
+                    {% for department in departments %}
+                        <option value="{{ department.name }}">{{ department.name }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Project:</label>
+                    <!-- <input type="text" class="form-control" id="lname" placeholder="Project id" name="projectid" value="{{ projectid }}"> -->
+                    <select class="form-control" name="projectid">
+                    {% for project in projects %}
+                        <option value="{{ project.name }}">{{ project.name }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                
+                
+                <button type="submit" class="btn btn-default form-wizard-button-disabled" id="demo">Submit</button>
+                <!-- <button type="cancel" class="btn btn-default">Cancel</button> -->
+                
+            </form>
+    </div>     
+    {% endblock %}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Login</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}">
+    </head>
+
+    <body cz-shortcut-listen="true">
+        
+        <div class="container-fluid">
+            <div class="row login-page" id="content">
+                
+                <div class="col-lg-4 col-md-6 col-md-offset-3 col-sm-8 col-xs-10 col-xs-offset-1 col-lg-offset-4 col-sm-offset-2">
+                    
+                    <div class="sign-up-container">
+
+                        <ul class="rainbow-border">
+                            <li class="bg-danger"></li>
+                            <li class="bg-warning"></li>
+                            <li class="bg-success"></li>
+                            <li class="bg-info"></li>
+                            <li class="bg-violet"></li>
+                        </ul>
+
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div class="company-name">
+                                    <img src="{% static "img/askNED-logo-blue.png" %}" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="flash-msg">
+                                
+                            </div>
+                            
+                            <div class="col-lg-10 col-xs-12 col-lg-offset-1">
+                                <form action="" class="" id="UserLoginForm" method="POST">
+                                    {% csrf_token %}
+                                    <div style="display:none;">
+                                        <input type="hidden" name="_method" value="POST"/>
+                                        <input type="hidden" name="timezone" class="timezone">
+                                    </div>
+                                    <input type="hidden" name="user_login" value="true" id="UserLogin">
+                                    <input type="hidden" name="user_org" value="saas" id="UserOrg">
+                                    
+                                    
+                                    
+                                    <div class="row control-group ">
+                                        <div class="form-group col-xs-12 floating-label-form-group controls uppar-border inputerror">
+                                            <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light text-center">
+                                                <i class="fa fa-link"></i>
+                                            </div>
+                                            <input type="text" value="saas.testaskned.com" class="form-control text-center input-round" disabled="disabled">
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 floating-label-form-group controls uppar-border inputerror">
+                                            <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light text-center">
+                                                <i class="fa fa-envelope"></i>
+                                            </div>
+                                            <input name="username" placeholder="Username" class="form-control login-inputs text-center input-round check-email-exist-js" autofocus="autofocus" required="required" type="text" onkeydown="lowercasef(this)" id="UserUsername"/>
+                                            <input type="hidden" name="next" value="/">
+
+                                            <span class="error-msg-dim-met error-msg-js">Invalid Email.</span>
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 floating-label-form-group controls inputerror">
+                                            <div class="btn-icon-lined btn-icon-round btn-icon-sm btn-default-light text-center">
+                                                <i class="fa fa-lock"></i>
+                                            </div>
+                                            <input name="password" placeholder="Password" class="form-control login-inputs text-center input-round" required="required" type="password" id="UserPassword"/>
+                                            <input type="hidden" name="is_trial" value="true" id="UserIsTrial"/>
+                                            <p class="help-block text-danger"></p>
+                                            <!--     <a href="/users-check_valid_email.html" class="login-link">Forgot Password?</a>   -->
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-12">
+                                            <button class="btn btn-lg sign-in-btn btn-gradients" type="submit">Log In</button>
+                                        </div>
+                                    </div>
+                                    <!-- <input type='hidden' name='csrfmiddlewaretoken' value='ArfjurakbaM8Md2rEVJKJ9Mbsex8yYyd' /> -->
+                                </form>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row sign-in-fotter">
+                            <div class="col-lg-12 col-xs-12 text-center" style="padding-left: 0px;">
+                                
+                                <a href="#">Forgot Your Password?</a>
+                                
+                            </div>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'app/sidebar.html' %}
+{% load static %}
+
+    {% block body_block %}
+    <div class="container">
+
+        <h2>Add Project Details</h2>
+            <form action="{% url 'projectsave' %}" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <input type="hidden" name="projectid" value="{{ projectid }}">
+                <div class="form-group">
+                    <label for="fname">Project Name:</label>
+                    <input type="text" class="form-control" id="fname" placeholder="Enter Name" name="name" value="{{ name }}">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Start date:</label>
+                    <input type="text" class="form-control datepicker" id="sdate" placeholder="Enter start date" name="startdate" value="{{ startdate }}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lname">End Date:</label>
+                    <input type="text" class="form-control datepicker" id="lname" placeholder="Enter end date" name="enddate" value="{{ enddate }}">
+                </div>
+
+
+                <!-- <div class="form-group">
+                    <label for="lname">Project id:</label>
+                    <input type="text" class="form-control" id="lname" placeholder="Project id" name="projectid" value="{{ projectid }}">
+                </div> -->
+                
+                
+                <button type="submit" class="btn btn-default form-wizard-button-disabled" id="demo">Submit</button>
+                <!-- <button type="cancel" class="btn btn-default">Cancel</button> -->
+                
+            </form>
+    </div>     
+    <script type="text/javascript">
+    $('.datepicker').datepicker({
+        dateFormat: 'dd-mm-yy'
+    });
+    </script>
+    {% endblock %}

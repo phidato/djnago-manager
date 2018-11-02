@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %} AskNed User Management {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_managment.css' %}">
+  </head>
+  <body>
+    
+    <div class="sidebar">
+      <a class="active" href="{% url 'allusers' %}">Users</a>
+      <a href="{% url 'userspost' %}">Post</a>
+      <a href="{% url 'empdata' %}">Employee</a>
+      <a href="{% url 'alldesignations' %}">Designations</a>
+      <a href="{% url 'allprojects' %}">Projects</a>
+      <a href="{% url 'alldepartments' %}">Deparments</a>
+    </div>
+
+    <div class="content">
+      {% block body_block %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

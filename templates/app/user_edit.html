@@ -1,0 +1,52 @@
+{% extends 'app/sidebar.html' %}
+{% load static %}
+
+    {% block body_block %}
+		
+		<div class="container">
+			<h2>Edit User</h2>
+			<form action="{% url 'updateusers' %}" method="POST">
+				{% csrf_token %}
+				<input type="hidden" name="userid" value="{{ userid }}">
+				<div class="form-group">
+					<label for="fname">First Name:</label>
+					<input type="text" class="form-control" id="fname" placeholder="First Name" name="fname" value="{{ firstname }}" >
+				</div>
+				<div class="form-group">
+					<label for="lname">Last Name:</label>
+					<input type="text" class="form-control" id="lname" placeholder="Last Name" name="lname" value="{{ lastname }}">
+				</div>
+				
+				<div class="form-group">
+					<label for="fname">Old Password:</label>
+					<input type="password" class="form-control" id="pwd_old" placeholder="Enter Old Password" name="pwd_old">
+				</div>
+				<div class="form-group">
+					<label for="pwd">New Password:</label>
+					<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+				</div>
+				<div class="form-group">
+					<label for="pwd">Confirm Password:</label>
+					<input type="password" class="form-control" id="cpwd" placeholder="Enter password" name="pwd" onkeyup="check();" />
+					<span id='message'></span>
+				</div>
+				
+				<button type="submit" class="btn btn-default form-wizard-button-disabled" id="demo" disabled>Submit</button>
+				<button type="cancel" class="btn btn-default">Cancel</button>
+			</form>
+		</div>
+		<script type="text/javascript">
+				var check = function() {
+				if (document.getElementById('pwd').value ==
+				document.getElementById('cpwd').value) {
+				document.getElementById('message').style.color = 'green';
+				document.getElementById('message').innerHTML = 'Password matched';
+				document.getElementById("demo").removeAttribute("disabled");
+				} else {
+				document.getElementById('message').style.color = 'red';
+				document.getElementById('message').innerHTML = 'Password not matching';
+				}
+				}
+				
+		</script>
+	{% endblock %}

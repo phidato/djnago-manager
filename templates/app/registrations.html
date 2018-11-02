@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>AskNED</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{% static "css/registrations.css" %}">
+	</head>
+	<body cz-shortcut-listen="true">
+		<div class="container-fluid">
+
+			<div class="row registration-page" id="content">
+				<div class="registration-container">
+					<div id="rootwizard" class="col-lg-8 col-lg-offset-2 padd-off">
+						<div class="col-sm-12 padd-off main-div">
+							<div class="registration-left col-sm-7">
+								
+								<div class="row">
+									<div class="col-md-5 col-xs-12 signup-left-1">
+										<img src="{% static "img/Icon_and-Type.png" %}" class="img-responsive" alt="">
+									</div>
+									<div class="clearfix"></div>
+									<div class="col-md-12 signup-left-2">
+										Get Automated Insights<br/>from your Marketing data.
+									</div>
+									<div class="col-md-12 signup-left-3">
+										Get started for free.
+									</div>
+									<div class="col-md-12 signup-left-4">
+										Ad X has is converting 30% better than Ad Y,<br/>yet most of your spend is going to Ad Y.
+									</div>
+									<div class="col-md-10 col-md-offset-1 signup-left-5 text-center">
+										<div class="row">
+											<div class="col-md-2 col-md-offset-1">
+												<img src="{% static "img/facebook.png" %}" class="img-responsive" alt="FB"/>
+											</div>
+											<div class="col-md-2">
+												<img src="{% static "img/pages2.png" %}" class="img-responsive" alt="GA"/>
+											</div>
+											<div class="col-md-2">
+												<img src="{% static "img/analytics.png" %}" class="img-responsive" alt="ANA"/>
+											</div>
+											<div class="col-md-2">
+												<img src="{% static "img/instagram.png" %}" class="img-responsive" alt="INS"/>
+											</div>
+											<div class="col-md-2">
+												<img src="{% static "img/google_word.png" %}" class="img-responsive" alt="GAW"/>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+
+							<div class="registration-right col-sm-5">
+								<form class="registration-form" action="{% url 'save-user' %}" method="POST">
+								{% csrf_token %}
+									<ul class="nav nav-pills">
+										<li class="wizard-li first hidden"><a href="#tab1" data-toggle="tab" class="v-hidden"></a></li>
+										<li class="wizard-li second hidden"><a href="#tab2" data-toggle="tab" class="v-hidden"></a></li>
+										<li class="wizard-li third hidden"><a href="#tab3" data-toggle="tab" class="v-hidden"></a></li>
+										<!-- <li class="wizard-li"><a href="#tab4" data-toggle="tab" class="v-hidden"></a></li> -->
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="tab1">
+											
+											<div class="form-wizard-title">
+												<h3>Create an account</h3>
+												<!-- <p>Sign up and begin firing questions right away!</p> -->
+											</div>
+											<div class="clearfix"></div>
+											<div class="form-row">
+												<div class="form-group col-md-6 less-padding-right-lg">
+													<!-- <label for="inputFName">First Name</label> -->
+													<input type="text" class="form-control form-input-js" name="first_name" id="inputFName" placeholder=" First Name" />
+												</div>
+												<div class="form-group col-md-6 less-padding-left-lg">
+													<!-- <label for="inputLName">Last Name</label> -->
+													<input type="text" class="form-control form-input-js" name="last_name" id="inputLName" placeholder=" Last Name" />
+												</div>
+											</div>
+											<div class="form-row">
+												<div class="form-group col-md-12">
+													<!-- <label for="inputEmail">Email</label> -->
+													<input type="email" class="form-control form-input-js" name="email_address" id="email_address" placeholder="Email" />
+													<div class="invalid-feedback hidden">Email already exist.</div>
+												</div>
+											</div>
+											<div class="form-row">
+												<div class="col-sm-12">
+													<span class="special-note hidden" style="color: #dc3545;">(password must be 6 characters)</span>
+												</div>
+												<div class="form-group col-md-6 less-padding-right-lg">
+													<!-- <label for="inputPassword">Password <span class="special-note hidden" style="color: #dc3545;">(must be 6 characters long)</span></label> -->
+													
+													<input type="password" class="form-control form-input-js" name="password" id="inputPassword" placeholder="Password" />
+												</div>
+												<div class="form-group col-md-6 less-padding-left-lg">
+													<!-- <label for="inputCPassword">Confirm Password</label> -->
+													<input type="password" class="form-control form-input-js" name="confirm_password" id="inputCPassword" placeholder="Confirm Password" onkeyup="check();"/>
+													<span id='message'></span>
+												</div>
+												
+											</div>
+											<div class="form-row">
+												<div class="form-group col-md-12">
+													<!-- <label for="inputOrgName">What is the name of your organization?</label> -->
+													<input type="text" class="form-control" name="organization_name" id="inputOrgName" placeholder="Company Name" />
+												</div>
+											</div>
+											<div class="form-row text-center">
+												<!-- <div class="col-md-12 wizard-footer-text">
+														By clicking next, you agree to AskNed's Teams to Service.
+												</div> -->
+												<div class="col-md-6 wizard wizard-first">
+													<button type="submit" id="demo" class="registration-btn btn btn-primary form-wizard-button-disabled form-wizard-button-first-js" disabled>Get Started</button>
+													<!-- <ul>
+															<button type="submit" class="registration-btn btn btn-primary form-wizard-button-disabled form-wizard-button-first-js" disabled="disabled">Create Your Account</button>
+													</ul> -->
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<input type='hidden' name='csrfmiddlewaretoken' value='ArfjurakbaM8Md2rEVJKJ9Mbsex8yYyd' />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+			
+			<script type="text/javascript">
+		        var check = function() {
+		          if (document.getElementById('inputPassword').value ==
+		            document.getElementById('inputCPassword').value) {
+		            document.getElementById('message').style.color = 'green';
+		            document.getElementById('message').innerHTML = 'Password matched';
+		            document.getElementById("demo").removeAttribute("disabled");
+		          } else {
+		            document.getElementById('message').style.color = 'red';
+		            document.getElementById('message').innerHTML = 'Password not matching';
+		          }
+		        }
+		        
+		    </script>
+			
+			<!-- jQuery library -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<!-- Latest compiled JavaScript -->
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		</body>
+	</html>
