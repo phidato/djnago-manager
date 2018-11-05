@@ -10,7 +10,7 @@
 						<h2>All Projects <b></b></h2>
 					</div>
 					<div class="col-sm-7">
-						<a href="{% url 'projectadd' %}" class="btn btn-primary"><i class="material-icons">&#xE147;</i> 
+						<a href="{% url 'projectadd' %}?member=projects" class="btn btn-primary"><i class="material-icons">&#xE147;</i> 
                             <span>Add Projects</span>
                         </a>
                                                                 <!-- <a href="#" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a> -->		
@@ -36,10 +36,10 @@
                         <td>{{ instance.enddate }}</td>
 						
 						<td>
-							<a href="{% url 'projectsave' %}?projectid={{ instance.id }}" class="settings" title="Update" data-toggle="tooltip">
+							<a href="{% url 'projectsave' %}?projectid={{ instance.id }}&member=projects" class="settings" title="Update" data-toggle="tooltip">
                                 <i class="material-icons">&#xE8B8;</i>
                             </a>
-							<a href="{% url 'projectdelete' %}?projectid={{ instance.id }}" class="delete" title="Delete" data-toggle="tooltip">
+							<a href="{% url 'projectdelete' %}?projectid={{ instance.id }}&member=projects" class="delete" title="Delete" data-toggle="tooltip">
                                 <i class="material-icons">&#xE5C9;</i>
                             </a>
 						</td>
@@ -49,7 +49,7 @@
                 </tbody>
             </table>
 			<div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                <!-- <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                 <ul class="pagination">
                     <li class="page-item disabled"><a href="#">Previous</a></li>
                     <li class="page-item active"><a href="#" class="page-link">1</a></li>
@@ -58,7 +58,7 @@
                     <li class="page-item"><a href="#" class="page-link">4</a></li>
                     <li class="page-item"><a href="#" class="page-link">5</a></li>
                     <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>     

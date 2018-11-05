@@ -20,21 +20,35 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/user_managment.css' %}">
+
   </head>
   <body>
     
     <div class="sidebar">
-      <a class="active" href="{% url 'allusers' %}">Users</a>
-      <a href="{% url 'userspost' %}">Post</a>
-      <a href="{% url 'empdata' %}">Employee</a>
-      <a href="{% url 'alldesignations' %}">Designations</a>
-      <a href="{% url 'allprojects' %}">Projects</a>
-      <a href="{% url 'alldepartments' %}">Deparments</a>
+      <a class="link users" href="{% url 'allusers' %}?member=users">Users</a>
+      <a class='link posts' href="{% url 'userspost' %}?member=posts">Post</a>
+      <a class='link employees' href="{% url 'empdata' %}?member=employees">Employee</a>
+      <a class='link designations' href="{% url 'alldesignations' %}?member=designations">Designations</a>
+      <a class='link projects' href="{% url 'allprojects' %}?member=projects">Projects</a>
+      <a class='link departments' href="{% url 'alldepartments' %}?member=departments">Deparments</a>
     </div>
 
     <div class="content">
       {% block body_block %}
       {% endblock %}
     </div>
+
+    <script>
+      // Add active class to the current button (highlight it)
+      var xe=decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent('member').replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+      console.log(xe);
+
+      c=document.getElementsByClassName(xe);
+      console.log(c[0]);
+      c[0].classList.add("active");
+      
+    </script>
+
   </body>
+
 </html>

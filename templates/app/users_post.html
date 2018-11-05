@@ -10,9 +10,9 @@
 						<h2>Posts <b></b></h2>
 					</div>
 					<div class="col-sm-7">
-						<a href="{% url 'postadd' %}" class="btn btn-primary"><i class="material-icons">&#xE147;</i> 
-                                                                                            <span>Add New Post</span>
-                                                                                        </a>
+						<a href="{% url 'postadd' %}?member=posts" class="btn btn-primary"><i class="material-icons">&#xE147;</i> 
+                            <span>Add New Post</span>
+                        </a>
                                                                 <!-- <a href="#" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a>         -->
 					</div>
                 </div>
@@ -44,7 +44,7 @@
                             {% endif %}
                         </td>
 						<td>
-							<a href="{% url 'postupdate' %}?postid={{ post.id }}" class="settings" title="Update" data-toggle="tooltip">
+							<a href="{% url 'postupdate' %}?postid={{ post.id }}&member=posts" class="settings" title="Update" data-toggle="tooltip">
                                 <i class="material-icons">&#xE8B8;</i>
                             </a>
 							<a href="{% url 'postdelete' %}?postid={{ post.id }}" class="delete" title="Delete" data-toggle="tooltip">
@@ -57,7 +57,7 @@
                 </tbody>
             </table>
 			<div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                <!-- <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                 <ul class="pagination">
                     <li class="page-item disabled"><a href="#">Previous</a></li>
                     <li class="page-item active"><a href="#" class="page-link">1</a></li>
@@ -66,33 +66,10 @@
                     <li class="page-item"><a href="#" class="page-link">4</a></li>
                     <li class="page-item"><a href="#" class="page-link">5</a></li>
                     <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
 
-        <!-- <h2>Add Post</h2>
-            <form action="{% url 'postupdate' %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="postid" value="{{ postid }}">
-                <div class="form-group">
-                    <label for="fname">Title:</label>
-                    <input type="text" class="form-control" id="fname" placeholder="Enter Title" name="title" value="{{ title }}">
-                </div>
-                <div class="form-group">
-                    <label for="lname">Category:</label>
-                    <input type="text" class="form-control" id="lname" placeholder="Category" name="category" value="{{ category }}">
-                </div>
-                
-                <div class="form-group">
-                    <label for="fname">Description:</label>
-                    <input type="password" class="form-control" id="pwd_old" placeholder="Enter Old Password" name="pwd_old">
-                    <textarea id="txtArea" rows="10" cols="70" class="form-control" name="description">{{ description }}</textarea>
-                </div>
-                
-                
-                <button type="submit" class="btn btn-default form-wizard-button-disabled" id="demo">Submit</button>
-                
-            </form> -->
     </div>     
     {% endblock %}
 

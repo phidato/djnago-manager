@@ -110,7 +110,7 @@ def UserDelete(request, username):
 	u = User.objects.get(username = username)
 	u.delete()
 	#messages.success(request, "The user is deleted")  
-	return HttpResponseRedirect('/app/users')
+	return HttpResponseRedirect('/app/users/?member=users')
 
 def UserUpdate(request):	
 	context = RequestContext(request)
@@ -123,7 +123,7 @@ def UserUpdate(request):
 		
 		user.save();
 
-		return HttpResponseRedirect('/app/users')
+		return HttpResponseRedirect('/app/users/?member=users')
 	
 	else:
 		obj = User.objects.get(id=request.GET.get('userid'))
@@ -152,7 +152,7 @@ def user_post_delete_view(request):
 	print(u)
 	u.delete()
 	#messages.success(request, "The user is deleted")  
-	return HttpResponseRedirect('/app/users-post')
+	return HttpResponseRedirect('/app/users-post/?member=posts')
 
 def post_save(request):	
 	context = RequestContext(request)
@@ -173,7 +173,7 @@ def post_save(request):
 		
 		post_obj.save();
 
-		return HttpResponseRedirect('/app/users-post')
+		return HttpResponseRedirect('/app/users-post/?member=posts')
 	
 	else:
 		obj = UserPost.objects.get(id=request.GET.get('postid'))
@@ -219,7 +219,7 @@ def emp_save(request):
 
 		emp_obj.save();
 
-		return HttpResponseRedirect('/app/emp-data')
+		return HttpResponseRedirect('/app/emp-data/?member=employees')
 	
 	else:
 		obj = EmpData.objects.get(id=request.GET.get('empid'))
@@ -244,7 +244,7 @@ def emp_delete(request):
 	print(u)
 	u.delete()
 	#messages.success(request, "The user is deleted")  
-	return HttpResponseRedirect('/app/emp-data')
+	return HttpResponseRedirect('/app/emp-data/?member=employees')
 
 
 def emp_add(request):
@@ -287,7 +287,7 @@ def project_save(request):
 		
 		obj.save();
 
-		return HttpResponseRedirect('/app/projects')
+		return HttpResponseRedirect('/app/projects/?member=projects')
 	
 	else: # retrive data for edit
 		obj = Project.objects.get(id=request.GET.get('projectid'))
@@ -307,7 +307,7 @@ def project_delete(request):
 	u = Project.objects.get(id=request.GET.get('projectid'))
 	u.delete()
 
-	return HttpResponseRedirect('/app/projects')
+	return HttpResponseRedirect('/app/projects/?member=projects')
 
 def dept_index(request):
 	context = RequestContext(request)
@@ -352,7 +352,7 @@ def dept_save(request):
 		
 		obj.save();
 
-		return HttpResponseRedirect('/app/departments')
+		return HttpResponseRedirect('/app/departments?member=departments')
 	
 	else: # retrive data for edit
 		obj = Departments.objects.get(id=request.GET.get('deptid'))
@@ -368,7 +368,7 @@ def dept_delete(request):
 
 	u.delete()
 
-	return HttpResponseRedirect('/app/departments')
+	return HttpResponseRedirect('/app/departments/?member=departments')
 
 
 def desg_add(request):
@@ -400,7 +400,7 @@ def desg_save(request):
 		
 		obj.save();
 
-		return HttpResponseRedirect('/app/designations')
+		return HttpResponseRedirect('/app/designations/?member=designations')
 	
 	else: # retrive data for edit
 		obj = Designation.objects.get(id=request.GET.get('desgid'))
@@ -415,6 +415,6 @@ def desg_delete(request):
 
 	u.delete()
 
-	return HttpResponseRedirect('/app/designations')
+	return HttpResponseRedirect('/app/designations/?member=designations')
 
 
