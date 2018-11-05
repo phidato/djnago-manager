@@ -418,3 +418,12 @@ def desg_delete(request):
 	return HttpResponseRedirect('/app/designations/?member=designations')
 
 
+def fb_data(request):
+	context = RequestContext(request)
+	data = {
+	
+	}
+	return render_to_response('app/fb_data.html', data, context)
+
+
+

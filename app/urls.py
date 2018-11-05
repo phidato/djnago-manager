@@ -40,4 +40,8 @@ urlpatterns = patterns('',
     url(r'^save-user/', views.save_user, name='save-user'),
     url(r'^restricted/', views.restricted, name='restricted'),
     url(r'^logout/$', views.user_logout, name='logout'),
+
+    url(r'^fb-data/$', views.fb_data, name='fbdata'),
+
+
 )
