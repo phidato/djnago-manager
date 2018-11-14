@@ -1,0 +1,153 @@
+{% extends 'app/sidebar.html' %}
+{% load static %}
+{% block body_block %}
+
+<h1>Connect your Google Analytics account</h1>
+<div id="transparent-wrapper">
+	<div id="wait-box">
+		<div><img src="{% static "img/loading-bubble.gif" %}"></div>
+		<div>Please wait....</div>
+	</div>
+	
+</div>
+
+<div id="login-box" class="hidden">
+	<h3>Google Analytics</h3>
+	<button id="btnLogin" onclick="byTutorialAnalytics.handleAuthClick()" class="button" data-toggle="modal" data-target="#myModal">Connect</button>
+	<!-- <button type="button" class="button" data-toggle="modal" data-target="#myModal">Connect</button> -->
+</div>
+
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">
+					    
+					      <!-- Modal content -->
+					      <div class="modal-content text-center">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					          <h4 class="modal-title">Google Analytics</h4>
+					
+					        </div>
+					        <div class="modal-body">
+					          
+								<table class="tbl" cellpadding="0" cellspacing="0">
+									<tr>
+										<td>Account: </td>
+										<td><select id="cboAccount">
+											<option value="">--Select Account--</option>
+										</select></td>
+									</tr>
+									<tr>
+										<td>Property: </td>
+										<td><select id="cboProperty">
+											<option value="">--Select Property--</option>
+										</select></td>
+									</tr>
+									<tr>
+										<td>Views: </td>
+										<td><select id="cboViews">
+											<option value="">--Select View--</option>
+										</select></td>
+									</tr>
+								</table>
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        </div>
+					      </div>
+					      
+					    </div>
+					</div>
+
+<div id="account-panel" class="hidden">
+	<h1>Google Analytics Panel</h1>
+	<table class="tbl" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>Account: </td>
+			<td><select id="cboAccount">
+				<option value="">--Select Account--</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Property: </td>
+			<td><select id="cboProperty">
+				<option value="">--Select Property--</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Views: </td>
+			<td><select id="cboViews">
+				<option value="">--Select View--</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Period: </td>
+			<td><select id="cboPeriod">
+					<option value="today">Today</option>
+					<option value="yesterday">Yesterday</option>
+					<option value="7daysago">Last Week</option>
+					<option value="14daysago">Last Two Weeks</option>
+					<option value="28daysago"">Last Four Weeks</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Data Type: </td>
+			<td>
+				<div><input type="checkbox" data-id="ga:users" class="chk-data" checked="true"/> ga:users</div>
+				<div><input type="checkbox" data-id="ga:newUsers" class="chk-data" checked="true"/> ga:newUsers</div>
+				<div><input type="checkbox" data-id="ga:hits" class="chk-data" checked="true"/> ga:hits</div>
+				<div><input type="checkbox" data-id="ga:sessions" class="chk-data" checked="true"/> ga:sessions</div>
+				<div><input type="checkbox" data-id="ga:visits" class="chk-data" checked="true"/> ga:visits</div>
+				<div><input type="checkbox" data-id="ga:bounces" class="chk-data" checked="true"/> ga:bounces</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button id="btnQuery" onclick="byTutorialAnalytics.queryAnalytics()" class="button">Query</button> <button id="btnReset" onclick="byTutorialAnalytics.reset()" class="button">Reset</button> <button id="btnLogout" onclick="byTutorialAnalytics.handleSignoutClick()" class="button">Log off</button></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	
+	<div id="result" class="hidden">
+		<h2>Query Result</h2>
+		<div id="query-result" class="result-box"></div>
+		
+		<h2>JSON Result</h2>
+		<div id="json-result" class="result-box"></div>
+	</div>
+	
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{% static "js/google-analytics.js" %}"></script>
+<script async defer src="https://apis.google.com/js/api.js" 
+      onload="this.onload=function(){};byTutorialAnalytics.handleClientLoad()" 
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+
+<style type="text/css">
+	.modal {
+	  text-align: center;
+	  padding: 0!important;
+	}
+
+	.modal:before {
+	  content: '';
+	  display: inline-block;
+	  height: 100%;
+	  vertical-align: middle;
+	  margin-right: -4px;
+	}
+
+	.modal-dialog {
+	  display: inline-block;
+	  text-align: left;
+	  /* vertical-align: middle; */
+	}
+</style>
+
+{% endblock %}

@@ -48,20 +48,20 @@
 			document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
 			});
 			
-			FB.api('/me/accounts', 'GET', {"fields":"category_list"},
+			FB.api('/me', 'GET', {"fields":"adaccounts{name}"},
 				function(response) {
-				/*console.log(response.data[1].category_list[0]);
+				/*console.log(response.adaccounts.data[0].name);
 				console.log(response.data.length);*/
-				document.getElementById('userPages').innerHTML = '<p><b></b>'
+				document.getElementById('userPages').innerHTML = '<p><b>Facebook Ads</b>'
 					var selectList = document.createElement("select");
 					selectList.id = "mySelect";
 					userPages.appendChild(selectList);
-					for (var i = 0; i < response.data.length; i++) {
+					for (var i = 0; i < response.adaccounts.data.length; i++) {
 						/*document.getElementById('userPages').innerHTML = '<p><b>FB Pages:</b> '+response.data[i].category_list[0].name;*/
-							console.log(response.data[i].category_list[0].name);
+							console.log(response.adaccounts.data[i].name);
 							var option = document.createElement("option");
-							option.value = response.data[i].category_list[0].name;
-    						option.text = response.data[i].category_list[0].name;
+							option.value = response.adaccounts.data[i].name;
+    						option.text = response.adaccounts.data[i].name;
     						selectList.appendChild(option);
 							
 						}
@@ -80,7 +80,7 @@
 						}
 						
 					</script>
-					<h1>Rizz fb App</h1>
+					<h1>FB App for Ads</h1>
 					<!-- <button onclick="javascript:logout();">Logout from Facebook</button>
 					<div
 							class="fb-login-button"
@@ -92,8 +92,8 @@
 							data-use-continue-as="false">
 								
 					</div> -->
-					<!-- Display login status -->
-					<div id="status"></div>
+					<!-- Display login status 
+					<div id="status"></div> -->
 					<!-- Facebook login or logout button -->
 					<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink">Login in facebook</a>
 					<!-- Display user profile data -->
@@ -101,7 +101,7 @@
 					<!-- <div id='userPages'></div> -->
 
 					<!-- Trigger the modal with a button -->
-					<h4>Facebook Pages</h4>
+					<h4>Know about user Facebook Ads</h4>
 					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Connect</button>
 
 					<!-- Modal -->
@@ -112,7 +112,7 @@
 					      <div class="modal-content text-center">
 					        <div class="modal-header">
 					          <button type="button" class="close" data-dismiss="modal">&times;</button>
-					          <h4 class="modal-title">Facebook Pages</h4>
+					          <h4 class="modal-title">Facebook Ads</h4>
 
 					        </div>
 					        <div class="modal-body">

@@ -425,5 +425,31 @@ def fb_data(request):
 	}
 	return render_to_response('app/fb_data.html', data, context)
 
+def fb_ads(request):
+	context = RequestContext(request)
+	data = {
+	
+	}
+	return render_to_response('app/fb_ads.html', data, context)
 
+def goo_analytics(request):
+	context = RequestContext(request)
+	data = {
+	
+	}
+	return render_to_response('app/goo_analytics.html', data, context)
+
+def goo_adwords(request):
+	context = RequestContext(request)
+	data = {
+	
+	}
+	return render_to_response('app/goo_adwords.html', data, context)
+
+def linkedin_data(request):
+	context = RequestContext(request)
+	data = {
+	
+	}
+	return render_to_response('app/linkedin_data.html', data, context)
 

@@ -42,6 +42,11 @@ urlpatterns = patterns('',
     url(r'^logout/$', views.user_logout, name='logout'),
 
     url(r'^fb-data/$', views.fb_data, name='fbdata'),
+    url(r'^fb-ads/$', views.fb_ads, name='fbads'),
 
+    url(r'^goo-analytics/$', views.goo_analytics, name='ganalytics'),
+    url(r'^goo-adwords/$', views.goo_adwords, name='gadwords'),
+
+    url(r'^linkedin-data/$', views.linkedin_data, name='linkedin'),
 
 )

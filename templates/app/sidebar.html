@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/user_managment.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gacss.css' %}">
 
   </head>
   <body>
@@ -31,7 +32,12 @@
       <a class='link designations' href="{% url 'alldesignations' %}?member=designations">Designations</a>
       <a class='link projects' href="{% url 'allprojects' %}?member=projects">Projects</a>
       <a class='link departments' href="{% url 'alldepartments' %}?member=departments">Deparments</a>
-      <a class='link fbdata' href="{% url 'fbdata' %}?member=fbdata">FB Data</a>
+      <a class='link fbdata' href="{% url 'fbdata' %}?member=fbdata">FB Pages</a>
+      <a class='link fbads' href="{% url 'fbads' %}?member=fbads">FB Ads</a>
+      <a class='link ganalytics' href="{% url 'ganalytics' %}?member=ganalytics">Google Analytics</a>
+      <a class='link gadwords' href="{% url 'gadwords' %}?member=gadwords">Google AdWords</a>
+      <a class='link linkedin' href="{% url 'linkedin' %}?member=linkedin">LinkedIn Data</a>
+
     </div>
 
     <div class="content">
